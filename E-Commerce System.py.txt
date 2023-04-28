@@ -1,0 +1,49 @@
+CATEGORIES = ["Electronics", "Clothing", "Books", "Home and Kitchen", "Beauty and Personal Care"]
+ITEMS = [
+    ["Laptop", "Smartphone", "Tablet", "Camera", "Headphones"],
+    ["T-shirt", "Jeans", "Dress", "Shoes", "Jacket"],
+    ["Novel", "Biography", "History", "Cookbook", "Poetry"],
+    ["Cookware Set", "Vacuum Cleaner", "Bedding Set", "Sofa", "Rug"],
+    ["Perfume", "Skincare Set", "Makeup Kit", "Hair Care Products", "Bath and Body Set"]
+]
+PRICES = [
+    [50000, 25000, 30000, 20000, 15000],
+    [1000, 2000, 3000, 2500, 4000],
+    [500, 800, 1000, 1200, 700],
+    [20000, 15000, 25000, 30000, 10000],
+    [1500, 2000, 3000, 2500, 3500]
+]
+TAX_RATE = 0.12
+
+print("Welcome to the E-Commerce System!")
+print("Categories:")
+for i in range(len(CATEGORIES)):
+    print(f"{i+1}. {CATEGORIES[i]}")
+    print("   Items:")
+    for j in range(len(ITEMS[i])):
+        print(f"   {j+1}. {ITEMS[i][j]} - ${PRICES[i][j]}")
+
+
+category = int(input("Enter the category number of the item you want to buy: ")) - 1
+item = int(input("Enter the item number: ")) - 1
+quantity = int(input("Enter the quantity: "))
+price = PRICES[category][item] * quantity
+
+
+name = input("Enter your name: ")
+address = input("Enter your delivery address: ")
+contact_number = input("Enter your contact number: ")
+
+
+total_price = price + (price * TAX_RATE)
+
+
+print("Order Details:")
+print(f"Category: {CATEGORIES[category]}")
+print(f"Item: {ITEMS[category][item]}")
+print(f"Price per unit: ${PRICES[category][item]}")
+print(f"Quantity: {quantity}")
+print(f"Total Price (incl. tax): ${total_price:.2f}")
+print(f"Name: {name}")
+print(f"Delivery Address: {address}")
+print(f"Contact Number: {contact_number}")
